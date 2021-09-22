@@ -39,9 +39,9 @@ jobs:
 
       # Blob storage upload using SAS URL
       - name: upload to blob
-        uses: bacongobbler/azure-blob-storage-upload@v1.1.1
-        with:
-          connection_string: ${{ secrets.SAS_URL }}
-          container_name: '$web'
-          source_dir: 'dist'
-          sync: true
+        run: |
+          az storage blob 
+          sync  
+          --connection-string ${{ secrets.SAS_URL }} 
+          --source ${GITHUB_WORKSPACE}/dist
+          --destination '$web'
